@@ -381,11 +381,4 @@ window.onload = function(){
     setInterval(() => {
         document.body.style.opacity = 1;
     }, 500);
-    const divElems = document.querySelectorAll('body > div');
-        [...divElems].forEach(item => {
-        if(item.style.display === 'block' && item.style.position === 'fixed' &&
-        item.style.zIndex == 9999999){
-        item.remove();
-        }
-    });
 }
