@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Калькулятор</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;">dd</div>
+    <div class="container">
+        <div class="slider">
+            <div class="tab active" onclick="changeTab(0)">
+                <img src="img/calculator.png" alt="" srcset="">
+            </div>
+            <div class="tab" onclick="changeTab(1)">
+                <img src="img/calendar.png" alt="" srcset="">
+            </div>
+
+            <div class="tab" onclick="changeTab(2)">
+                <img src="img/planet.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="content">
+            <div class="calculator">
+                <div class="primary__calculator">
+                    <div class="icon" id="icon" onclick="history()"><i class="historyicon" id="icon">history</i></div>
+                    <div class="historyouter" id="history" style="display: none;">
+                        <div class="historyinner" id="historyinner"> 
+                        </div>
+                    </div>
+                    <div class="outputbox">
+                        <div class="resultbox">
+                            <span id="answer">
+                                Ans = 0
+                            </span>
+                        </div>
+                        <div class="inputbox">
+                            <span id=calculation> 0
+                            </span>
+                        </div>
+                    </div>
+                    <div class="table">
+                        <div class="tr">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">(</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">)</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">%</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" id="clear" onclick="btnclk(this.textContent)">AC</div>
+                                </div>
+                            </div class="td">
+                        </div class="tr">
+                        <div class="tr">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">7</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">8</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number"  onclick="btnclk(this.textContent)">9</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">÷</div>
+                                </div>
+                            </div class="td">
+                        </div class="tr">
+                        <div class="tr">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">4</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">5</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">6</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">×</div>
+                                </div>
+                            </div class="td">
+                        </div class="tr">
+                        <div class="tr">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">1</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">2</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">3</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">-</div>
+                                </div>
+                            </div class="td">
+                        </div class="tr">
+                        <div class="tr">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char number" onclick="btnclk(this.textContent)">0</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">.</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char equal" onclick="btnclk(this.textContent)">=</div>
+                                </div>
+                            </div class="td">
+                            <div class="td">
+                                <div class="btn">
+                                    <div class="char operator" onclick="btnclk(this.textContent)">+</div>
+                                </div>
+                            </div class="td">
+                        </div class="tr">
+                    </div class="table">
+                </div>
+            </div>
+
+            <div class="calculator days-difference">
+                <p> Этот калькулятор позволяет  выполнять различные операции с датами.</p>
+                <div id="date-picker-difference" class="input__item date-picker">
+                    <select id="difference">
+                        <option value="day-of-week">день недели</option>
+                        <option value="two-dates">разность дат</option>
+                    </select>
+                    <div class="sub-calculator-container">
+                        <div class="sub-calculator" id="day-of-week">
+                            <div id="date-picker-week" class="input__item date-picker">
+                                <label>Дата, день недели которой вы бы хотели узнать: </label>
+                                <select class="day"></select>
+                                <select class="month"></select>
+                                <input type="text" class="year">
+                            </div>
+                            <button id="day-to-week" class="result-btn">Вычислить</button>
+                            <ul id="results-week" class="results"></ul>
+                        </div>
+                        <div class="sub-calculator" id="two-dates">
+                            <p>Количество дней между датами</p>
+                            <div id="date-picker-dif1" class="input__item date-picker">
+                                <label>Дата 1: </label>
+                                <select class="day"></select>
+                                <select class="month"></select>
+                                <input type="text" class="year">
+                            </div>
+                            <div id="date-picker-dif2" class="input__item date-picker">
+                                <label>Дата 1: </label>
+                                <select class="day"></select>
+                                <select class="month"></select>
+                                <input type="text" class="year">
+                            </div>
+                            <button id="day-to-difference" class="result-btn">Вычислить</button>
+                            <ul id="results-two-dates" class="results"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator active">
+                <p>Укажите дату рождения и вес, чтобы узнать, какими бы они были на других планетах</p>
+
+                <div class="inputs">
+                    <div id="date-picker-planets" class="input__item date-picker">
+                        <label>Дата рождения: </label>
+                        <select class="day"></select>
+                        <select class="month"></select>
+                        <input type="text" class="year">
+                    </div>
+
+                    <div class="input__item">
+                        <label for="weight">Вес (кг):</label>
+                        <div class="number-input">
+                            <input type="text" id="weight" class="input-field" id="weight" placeholder="0">
+                            <button class="decrement-button">-</button>
+                            <button class="increment-button">+</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button id="planet-btn" class="result-btn">Вычислить</button>
+
+
+                <ul id="results-planets" class="results"></ul>
+
+            </div>
+        </div>
+    </div>
+    <div class="togit">
+        <a href="" target="_blank">GitHub</a>
+    </div>
+    <script src="js/evaluation.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
