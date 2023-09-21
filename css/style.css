@@ -9,6 +9,7 @@
 }
 
 body {
+  opacity: 0;
   padding: 0 15px;
   background-color: #F4F4F4;
   font-family: 'Roboto', sans-serif;

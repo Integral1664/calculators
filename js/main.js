@@ -331,6 +331,9 @@ function initializeDatePicker(parentPicker, initialDay) {
       currentDay = daySelect.value;
       populateDays();
     }
+    if(enteredYear == ''){
+        yearInput.value = +(new Date().getFullYear());
+    }
   }
   function handleYearInputIn() {
     const enteredYear = yearInput.value;
@@ -349,8 +352,8 @@ function initializeDatePicker(parentPicker, initialDay) {
   yearInput.value = currentYear;
 
   const months = [
-    "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
-    "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"
+    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
   ];
 
   for (let i = 0; i < months.length; i++) {
@@ -376,9 +379,9 @@ initializeDatePicker('date-picker-dif2', new Date().getDate());
 // Third Calculator
 initializeDatePicker('date-picker-planets', new Date().getDate());
 
-document.body.style.opacity = 0;
 window.onload = function(){
     setInterval(() => {
         document.body.style.opacity = 1;
     }, 500);
+
 }
